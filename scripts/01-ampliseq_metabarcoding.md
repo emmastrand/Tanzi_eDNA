@@ -55,3 +55,52 @@ Notes:
 
 - This is going to output many error and output files. After job completes, use `cat *output.* > ../fastqc_output.txt` to create one file with all the output and `cat *error.* > ../fastqc_error.txt` to create one file with all of the error message outputs.
 - Within the out_dir output folder, use `ls *html | wc` to count the number of html output files (1st/2nd column values). This should be equal to the --array range used and the number of raw data files. If not, the script missed some input files so address this before moving on.
+
+## Step 2: Visualize quality of raw data
+
+`00-multiqc.sh`
+
+```
+## activate conda environment 
+source ~/../../work/gmgi/miniconda3/bin/activate
+conda activate haddock_methylation
+
+## SET PATHS 
+## fastqc_output = output from 00-fastqc.sh; fastqc program
+fastqc_output="/work/gmgi/Fisheries/eDNA/NY/QC/fastqc_raw"
+multiqc_dir="/work/gmgi/Fisheries/eDNA/NY/QC/multiqc_raw"
+
+## RUN MULTIQC 
+multiqc --interactive ${fastqc_output} -o ${multiqc_dir} --filename multiqc_raw.html
+```
+
+## Step 3: Ampliseq
+
+### Metadata sheet 
+
+**Create samplesheet sheet for ampliseq**
+
+This file indicates the sample ID and the path to R1 and R2 files. Below is a preview of the sample sheet used in this test. File created on RStudio Interactive on Discovery Cluster using (`create_metadatasheets.R`).
+- sampleID (required): Unique sample IDs, must start with a letter, and can only contain letters, numbers or underscores (no hyphons!).  
+- forwardReads (required): Paths to (forward) reads zipped FastQ files  
+- reverseReads (optional): Paths to reverse reads zipped FastQ files, required if the data is paired-end  
+- run (optional): If the data was produced by multiple sequencing runs, any string  
+
+*This is an R script, not slurm script. Open RStudio interactive on Discovery Cluster to run this script.*
+
+Prior to running R script, use the rawdata file created for the fastqc slurm array from within the raw data folder to create a list of files. 
+
+```
+
+
+
+```
+
+
+### Ampliseq 
+
+12S primer sequences (required)
+Below is what we used for 12S amplicon sequencing at UNH (MiFish). Ampliseq will automatically calculate the reverse compliment and include this for us.
+
+MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC
+MiFish 12S amplicon R: GTTTGACCCTAATCTATGGGGTGATAC
