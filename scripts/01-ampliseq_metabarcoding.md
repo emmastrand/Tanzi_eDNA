@@ -91,9 +91,35 @@ This file indicates the sample ID and the path to R1 and R2 files. Below is a pr
 Prior to running R script, use the rawdata file created for the fastqc slurm array from within the raw data folder to create a list of files. 
 
 ```
+### Create samplesheet sheet for Tanzi eDNA project 
+library(dplyr)
+library(stringr)
+library(strex)
 
+### Read in sample sheet 
+sample_list <- read.delim2("/work/gmgi/Fisheries/eDNA/NY/raw_data/rawdata", header=F) %>% 
+  dplyr::rename(forwardReads = V1) %>%
+  mutate(sampleID = str_after_nth(forwardReads, "data/", 1),
+         sampleID = str_before_nth(sampleID, "_S", 1))
 
+# creating sample ID 
+sample_list$sampleID <- gsub("-", "_", sample_list$sampleID)
 
+# keeping only rows with R1
+sample_list <- filter(sample_list, grepl("R1", forwardReads, ignore.case = TRUE))
+
+# duplicating column 
+sample_list$reverseReads <- sample_list$forwardReads
+
+# replacing R1 with R2 in only one column 
+sample_list$reverseReads <- gsub("R1", "R2", sample_list$reverseReads)
+
+# rearranging columns 
+sample_list <- sample_list[,c(2,1,3)]
+
+# saving file 
+sample_list %>% write.csv("/work/gmgi/Fisheries/eDNA/NY/metadata/samplesheet.csv", 
+                          row.names=FALSE, quote = FALSE)
 ```
 
 
@@ -104,3 +130,56 @@ Below is what we used for 12S amplicon sequencing at UNH (MiFish). Ampliseq will
 
 MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC
 MiFish 12S amplicon R: GTTTGACCCTAATCTATGGGGTGATAC
+
+Run nf-core/ampliseq (Cutadapt & DADA2):
+
+`01-ampliseq.sh`:
+
+```
+#!/bin/bash
+#SBATCH --error=output_messages/"%x_error.%j" #if your job fails, the error report will be put in this file
+#SBATCH --output=output_messages/"%x_output.%j" #once your job is completed, any final job report comments will be put in this file
+#SBATCH --partition=short
+#SBATCH --nodes=1
+#SBATCH --time=20:00:00
+#SBATCH --job-name=ampliseq
+#SBATCH --mem=70GB
+#SBATCH --ntasks=24
+#SBATCH --cpus-per-task=2
+
+### USER TO-DO ### 
+## 1. Set paths for project 
+## 2. Adjust SBATCH options above (time, mem, ntasks, etc.) as desired  
+## 3. Fill in F and R primer information (no reverse compliment)
+## 4. Adjust parameters as needed (below is Fisheries team default for 12S)
+
+# LOAD MODULES
+module load singularity/3.10.3
+module load nextflow/23.10.1
+
+# SET PATHS 
+metadata="/work/gmgi/Fisheries/eDNA/NY/metadata" 
+output_dir="/work/gmgi/Fisheries/eDNA/NY/results"
+
+nextflow run nf-core/ampliseq -resume \
+   -profile singularity \
+   --input ${metadata}/samplesheet.csv \
+   --FW_primer "GTCGGTAAAACTCGTGCCAGC" \
+   --RV_primer "GTTTGACCCTAATCTATGGGGTGATAC" \
+   --outdir ${output_dir} \
+   --trunclenf 20 \
+   --trunclenr 20 \
+   --trunc_qmin 25 \
+   --max_len 200 \
+   --max_ee 2 \
+   --min_len_asv 100 \
+   --max_len_asv 115 \
+   --sample_inference pseudo \
+   --skip_taxonomy \
+   --ignore_failed_filtering \
+   --ignore_failed_trimming
+```
+
+Stopped here:  
+- Confirm what primer sequences were used?
+- Lab protocol - confirm gel images and quality of DNA extracts?
