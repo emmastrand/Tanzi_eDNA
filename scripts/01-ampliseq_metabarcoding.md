@@ -129,7 +129,7 @@ sample_list %>% write.csv("/work/gmgi/Fisheries/eDNA/NY/metadata/samplesheet.csv
 Below is what we used for 12S amplicon sequencing at UNH (MiFish). Ampliseq will automatically calculate the reverse compliment and include this for us.
 
 MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC
-MiFish 12S amplicon R: GTTTGACCCTAATCTATGGGGTGATAC
+MiFish 12S amplicon R: CATAGTGGGGTATCTAATCCCAGTTTG
 
 Run nf-core/ampliseq (Cutadapt & DADA2):
 
@@ -165,21 +165,19 @@ nextflow run nf-core/ampliseq -resume \
    -profile singularity \
    --input ${metadata}/samplesheet.csv \
    --FW_primer "GTCGGTAAAACTCGTGCCAGC" \
-   --RV_primer "GTTTGACCCTAATCTATGGGGTGATAC" \
+   --RV_primer "CATAGTGGGGTATCTAATCCCAGTTTG" \
    --outdir ${output_dir} \
    --trunclenf 20 \
    --trunclenr 20 \
    --trunc_qmin 25 \
    --max_len 200 \
    --max_ee 2 \
-   --min_len_asv 100 \
-   --max_len_asv 115 \
    --sample_inference pseudo \
    --skip_taxonomy \
    --ignore_failed_filtering \
    --ignore_failed_trimming
 ```
 
-Stopped here:  
-- Confirm what primer sequences were used?
-- Lab protocol - confirm gel images and quality of DNA extracts?
+Possible additions: 
+- --min_len_asv 100 --max_len_asv 115. The target should be ~163-185
+
