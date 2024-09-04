@@ -128,8 +128,10 @@ sample_list %>% write.csv("/work/gmgi/Fisheries/eDNA/NY/metadata/samplesheet.csv
 12S primer sequences (required)
 Below is what we used for 12S amplicon sequencing at UNH (MiFish). Ampliseq will automatically calculate the reverse compliment and include this for us.
 
-MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC
-MiFish 12S amplicon R: CATAGTGGGGTATCTAATCCCAGTTTG
+MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC  
+MiFish 12S amplicon R: CATAGTGGGGTATCTAATCCCAGTTTG  
+
+This was 2x250 bp sequencing - max length of reads is 250 bp.
 
 Run nf-core/ampliseq (Cutadapt & DADA2):
 
