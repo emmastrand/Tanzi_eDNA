@@ -128,8 +128,8 @@ sample_list %>% write.csv("/work/gmgi/Fisheries/eDNA/NY/metadata/samplesheet.csv
 12S primer sequences (required)
 Below is what we used for 12S amplicon sequencing at UNH (MiFish). Ampliseq will automatically calculate the reverse compliment and include this for us.
 
-MiFish 12S amplicon F: GTCGGTAAAACTCGTGCCAGC  
-MiFish 12S amplicon R: CATAGTGGGGTATCTAATCCCAGTTTG  
+MiFish-U 12S amplicon F: GTCGGTAAAACTCGTGCCAGC  
+MiFish-U 12S amplicon R: CATAGTGGGGTATCTAATCCCAGTTTG  
 
 This was 2x250 bp sequencing - max length of reads is 250 bp.
 
@@ -169,8 +169,6 @@ nextflow run nf-core/ampliseq -resume \
    --FW_primer "GTCGGTAAAACTCGTGCCAGC" \
    --RV_primer "CATAGTGGGGTATCTAATCCCAGTTTG" \
    --outdir ${output_dir} \
-   --trunclenf 20 \
-   --trunclenr 20 \
    --trunc_qmin 25 \
    --max_len 200 \
    --max_ee 2 \
@@ -181,5 +179,93 @@ nextflow run nf-core/ampliseq -resume \
 ```
 
 Possible additions: 
-- --min_len_asv 100 --max_len_asv 115. The target should be ~163-185
+- `--min_len_asv 100 --max_len_asv 115`: The target should be ~163-185  
+- `--trunclenf 200 --trunclenr 200`: 200-230 but the script above is basing this on quality so leave out for now.
 
+## Step 4: Blast ASV sequences against MiFish database
+
+https://github.com/billzt/MiFish/tree/main
+
+This uses MiFish as the first pass database. Use NCBI as next step?
+
+Create conda environment with MiFish set-up:
+
+```
+source ~/../../work/gmgi/miniconda3/bin/activate
+conda create -n MiFish python==3.9.13
+conda activate MiFish
+pip3 install numpy==1.23.1
+pip3 install scikit-bio==0.5.6
+pip3 install PyQt5==5.15.7
+pip3 install ete3==3.1.2
+pip3 install duckdb==0.6.1
+pip3 install XlsxWriter==3.0.3
+pip3 install cutadapt==4.1
+pip3 install biopython==1.79
+git clone https://github.com/billzt/MiFish.git
+cd MiFish
+python3 setup.py develop
+mifish -h
+```
+
+#### Update Mitofish database 
+
+MitoFish download: Updated /work/gmgi/databases/12S/MitoFish to 4.04 Sept 2024 
+
+Check Mitofish webpage (https://mitofish.aori.u-tokyo.ac.jp/download/) for the most recent database version number. Compare to the `work/gmgi/databases/12S/reference_fasta/12S/Mitofish/` folder. If needed, update Mitofish database:
+
+```
+## download db 
+wget https://mitofish.aori.u-tokyo.ac.jp/species/detail/download/?filename=download%2F/complete_partial_mitogenomes.zip  
+
+## unzip 
+unzip 'index.html?filename=download%2F%2Fcomplete_partial_mitogenomes.zip'
+
+## clean headers 
+awk '/^>/ {print $1} !/^>/ {print}' mito-all > Mitofish_v4.04.fasta
+
+## remove excess files 
+rm mito-all* 
+rm index*
+
+## make NCBI db 
+## make sure fisheries_eDNA conda environment is activated or module load ncbi-blast+/2.13.0
+conda activate fisheries_eDNA
+makeblastdb -in Mitofish_v4.04.fasta -dbtype nucl -out Mitofish_v4.04.fasta -parse_seqids
+
+conda activate MiFish
+```
+
+### Taxonomic ID script 
+
+I ended up doing this in the command line instead of sbatch. I got 0 results from the Mitofish search... and summary report says sequences are bacterial origin.. Did we only catch 16S with this protocol? MiFish is known to do this.. 
+
+```
+# Activate conda environment
+source ~/../../work/gmgi/miniconda3/bin/activate
+conda activate fisheries_eDNA
+
+# SET PATHS 
+ASV_fasta="/work/gmgi/Fisheries/eDNA/NY/results/dada2/ASV_seqs.fasta"
+out="/work/gmgi/Fisheries/eDNA/NY/TaxID"
+
+gmgi="/work/gmgi/databases/12S/GMGI"
+mito="/work/gmgi/databases/12S/Mitofish"
+taxonkit="/work/gmgi/databases/taxonkit"
+
+#### DATABASE QUERY ####
+## Mitofish database 
+blastn -db ${mito}/*.fasta -query ${ASV_fasta} -out ${out}/BLASTResults_Mito.txt -max_target_seqs 30 -perc_identity 90 -qcov_hsp_perc 95 -outfmt '6  qseqid   sseqid  pident   length   mismatch gapopen  qstart   qend  sstart   send  evalue   bitscore'
+
+### NCBI database 
+blastn -remote -db nt -query ${ASV_fasta} -out ${out}/BLASTResults_NCBI.txt -max_target_seqs 10 -perc_identity 90 -qcov_hsp_perc 95 -outfmt '6  qseqid   sseqid   sscinames   staxid pident   length   mismatch gapopen  qstart   qend  sstart   send  evalue   bitscore'
+
+############################
+
+#### TAXONOMIC CLASSIFICATION #### 
+## creating list of staxids from all three files 
+awk -F $'\t' '{ print $4}' ${out}/BLASTResults_NCBI.txt | sort -u > ${out}/NCBI_sp.txt
+
+## annotating taxid with full taxonomic classification
+cat ${out}/NCBI_sp.txt | ${taxonkit}/taxonkit reformat -I 1 -r "Unassigned" > ${out}/NCBI_taxassigned.txt
+```
