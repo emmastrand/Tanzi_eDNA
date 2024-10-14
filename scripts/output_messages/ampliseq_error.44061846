@@ -1,0 +1,4 @@
+
+CondaError: Run 'conda init' before 'conda activate'
+
+/var/spool/slurmd/job44061846/slurm_script: line 29: nextflow: command not found

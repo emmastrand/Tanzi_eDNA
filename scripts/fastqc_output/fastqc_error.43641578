@@ -1,0 +1,12 @@
+Exception in thread "main" java.awt.HeadlessException: 
+No X11 DISPLAY variable was set,
+or no headful library support was found,
+but this program performed an operation which requires it,
+
+	at java.desktop/java.awt.GraphicsEnvironment.checkHeadless(GraphicsEnvironment.java:166)
+	at java.desktop/java.awt.Window.<init>(Window.java:553)
+	at java.desktop/java.awt.Frame.<init>(Frame.java:428)
+	at java.desktop/java.awt.Frame.<init>(Frame.java:393)
+	at java.desktop/javax.swing.JFrame.<init>(JFrame.java:180)
+	at uk.ac.babraham.FastQC.FastQCApplication.<init>(FastQCApplication.java:63)
+	at uk.ac.babraham.FastQC.FastQCApplication.main(FastQCApplication.java:338)

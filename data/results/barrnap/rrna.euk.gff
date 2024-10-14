@@ -1,0 +1,18 @@
+##gff-version 3
+18af225e8a88d9699f1927778f810dfd	barrnap:0.9	rRNA	44	255	6.6e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+1964efd973696a0c12754990b0113def	barrnap:0.9	rRNA	37	255	5.1e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+22e0696b1ce5a358591d4f450b9a8715	barrnap:0.9	rRNA	38	255	1.3e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+3f461dc780b62c80dff400521510853c	barrnap:0.9	rRNA	37	255	6.1e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+4536bd361001b3a715c37861dfc58db8	barrnap:0.9	rRNA	37	255	2.6e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+4a6c4f1caf692ca1e8f1baa695598d39	barrnap:0.9	rRNA	38	255	9.7e-08	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+52810ebd472e4593d5ad1ecd809ebc5d	barrnap:0.9	rRNA	10	253	5.9e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 13 percent of the 18S ribosomal RNA
+5756031c68e536564432f395f33afd4a	barrnap:0.9	rRNA	42	255	7.3e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+6ddb6a7d3184d745f099f9658d9ce26d	barrnap:0.9	rRNA	41	253	4.6e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+7a583d3a9e1b7acec5754031426c1d98	barrnap:0.9	rRNA	43	255	4.5e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+7ac68cb80b114ca0cffbf69273f1496d	barrnap:0.9	rRNA	68	254	1.1e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 10 percent of the 18S ribosomal RNA
+7e76647aba7b98c61cc5253c2cbe5ff4	barrnap:0.9	rRNA	37	255	5.4e-08	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+8bb423bd13557e6e64949d13b038a931	barrnap:0.9	rRNA	37	255	1.2e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+9c2bfcd4f909fb73eb3442df7f543bfa	barrnap:0.9	rRNA	38	255	5.9e-08	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+b5c9f72fb8dd8791226615c3519eef51	barrnap:0.9	rRNA	38	255	3.9e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+bb5b720bccde3125e760d963940e43de	barrnap:0.9	rRNA	43	255	3.3e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA
+e8c9057aa67bda1060f101b94df73f42	barrnap:0.9	rRNA	38	255	5e-07	+	.	Name=18S_rRNA;product=18S ribosomal RNA (partial);note=aligned only 11 percent of the 18S ribosomal RNA

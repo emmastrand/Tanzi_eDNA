@@ -1,0 +1,46 @@
+BARRNAP:
+  barrnap: 0.9
+BARRNAPSUMMARY:
+  python: Python 3.9.1
+CUTADAPT_BASIC:
+  cutadapt: 4.6
+CUTADAPT_SUMMARY_STD:
+  python: Python 3.8.3
+DADA2_DENOISING:
+  R: 4.3.2
+  dada2: 1.30.0
+DADA2_ERR:
+  R: 4.3.2
+  dada2: 1.30.0
+DADA2_FILTNTRIM:
+  R: 4.3.2
+  dada2: 1.30.0
+DADA2_MERGE:
+  R: 4.1.1
+  dada2: 1.22.0
+DADA2_QUALITY1:
+  R: 4.3.2
+  dada2: 1.30.0
+  ShortRead: 1.60.0
+DADA2_QUALITY2:
+  R: 4.3.2
+  dada2: 1.30.0
+  ShortRead: 1.60.0
+DADA2_RMCHIMERA:
+  R: 4.3.2
+  dada2: 1.30.0
+DADA2_STATS:
+  R: 4.3.2
+  dada2: 1.30.0
+FASTQC:
+  fastqc: 0.12.1
+MERGE_STATS_STD:
+  R: 4.3.2
+RENAME_RAW_DATA_FILES:
+  sed: 4.7
+TRUNCLEN:
+  python: 3.9.1
+  pandas: 1.1.5
+Workflow:
+    nf-core/ampliseq: v2.11.0-g0473e15
+    Nextflow: 24.04.4

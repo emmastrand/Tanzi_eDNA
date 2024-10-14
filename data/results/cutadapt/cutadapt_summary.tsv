@@ -1,0 +1,16 @@
+sample	cutadapt_total_processed	cutadapt_reverse_complemented	cutadapt_passing_filters	cutadapt_passing_filters_percent
+NTC	261		122	46.7%
+PAC	236,538		233,665	98.8%
+Site1_1	120,887		113,574	94.0%
+Site1_2	367,357		345,542	94.1%
+Site1_3	248,852		234,783	94.3%
+Site2_1	139,339		133,725	96.0%
+Site2_2	112,383		107,793	95.9%
+Site2_3	282,842		268,201	94.8%
+Site3_1	4		4	100.0%
+Site3_2	236,331		225,817	95.6%
+Site3_3	131,230		125,462	95.6%
+Site4_1	142,760		135,554	95.0%
+Site4_2	22,622		22,132	97.8%
+Site4_3	389,096		373,970	96.1%
+XB	13,585		6,827	50.3%
