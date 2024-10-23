@@ -164,6 +164,17 @@ df <- ASV_table %>% left_join(., Blast_df_annotated, by = "ASV_ID") %>%
 df %>% write_xlsx("data/results/Results.xlsx")
 ```
 
+### Collapse by genus group
+
+```{r}
+genera_df <- df %>% dplyr::select(-ASV_ID, -ASV_sum, -ASV_rank, -NTC, -PAC, -XB) %>%
+  group_by(Kingdom, Phylum, Class, Order, Family, Genus) %>%
+  summarise(across(1:12, ~ sum(., na.rm = TRUE))) %>% ungroup() %>%
+  mutate(., Group_sum = rowSums(across(where(is.numeric)))) %>%
+  mutate(Group_rank = rank(-Group_sum, ties.method='random'))
+
+genera_df %>% write_xlsx("data/results/Grouped_Results.xlsx")
+```
 
 
 

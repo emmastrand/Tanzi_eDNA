@@ -1,0 +1,218 @@
+---
+title: "Figure generation for Tanzi eDNA project"
+output: html_document
+date: "2024-10-16"
+---
+
+Load libraries
+
+```{r}
+library(ggplot2) ## for plotting
+library(dplyr) ## for data table manipulation
+library(tidyr) ## for data table manipulation
+library(readr) ## for reading in tsv files
+library(readxl) ## for reading in excel files
+library(stringr) ## for data transformation
+library(strex) ## for data transformation
+library(writexl) ## for excel output
+library(purrr) ## for data transformation
+library(funrar) ## for make_relative()
+library(tidyverse) ## for data table manipulation
+library(phyloseq)
+library(naniar) ## replace_with_na_all function
+library(ggh4x) ## for facet wrap options
+library("vegan")
+```
+
+Create phyloseq obj and then plot from there to be able to do family or genus level?
+
+```{r}
+df <- read_xlsx("data/results/Grouped_Results_sorted.xlsx")
+
+data <- df %>% dplyr::select(-Group_sum, -Group_rank) %>%
+  mutate(ASV_ID = row_number(),
+         ASV_ID = paste0("tax_", ASV_ID)) %>%
+  dplyr::select(Site1_1:Site4_3, ASV_ID) %>%
+  column_to_rownames(var = "ASV_ID")
+
+otutab <- otu_table(data, taxa_are_rows = T)
+
+meta <- df %>% dplyr::select(Site1_1:Site4_3) %>%
+  gather("SampleID", "reads") %>% dplyr::select(-reads) %>%
+  separate(SampleID, c("Site", "Depth"), sep = "_", remove=FALSE) %>% distinct()
+
+meta <- sample_data(meta)
+rownames(meta) <- meta$SampleID
+
+tax <- df %>% dplyr::select(-Group_sum, -Group_rank) %>%
+  mutate(ASV_ID = row_number(),
+         ASV_ID = paste0("tax_", ASV_ID)) %>%
+  dplyr::select(Kingdom:Genus, ASV_ID) %>%
+  column_to_rownames(var = "ASV_ID")
+
+tax_table <- tax_table(as.matrix(tax[,1:6]))
+taxa_names(tax_table) <- taxa_names(otutab)
+
+physeq_obj <- merge_phyloseq(otutab, tax_table, meta)
+
+physeq_obj_unassigned <- subset_taxa(physeq_obj, Family != "Unassigned")
+```
+
+## Creating a column that fills in the unassigned
+
+```{r}
+df_ID <- df %>%
+  mutate(ID = ifelse(Genus == "Unassigned" | is.na(Genus), Family, Genus),
+         ID = ifelse(ID == "Unassigned" | is.na(ID), Order, ID),
+         ID = ifelse(ID == "Unassigned" | is.na(ID), Class, ID),
+         ID = ifelse(ID == "Unassigned" | is.na(ID), Phylum, ID),
+         ID = ifelse(ID == "Unassigned" | is.na(ID), Kingdom, ID)) %>%
+  dplyr::select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus) 
+
+df_relab <- df_ID %>%
+# Calculate column totals
+  summarise(across(where(is.numeric), sum, na.rm = TRUE)) %>%
+  # Bind totals row to original dataframe
+  bind_rows(df_ID) %>%
+  # Divide each column by its total
+   mutate(across(where(is.numeric) & !c(Group_sum, Group_rank), ~ . / first(.))) %>%
+  # Remove the first row (totals)
+  slice(-1) %>%
+  
+  ## Filtering to top 71 
+  filter(Group_rank < 71) %>%
+  dplyr::select(-Group_sum, -Group_rank)
+```
+
+### Plotting
+
+```{r}
+df_ID_long <- df_relab %>% gather("SampleID", "reads", 1:12) %>% left_join(., meta, by = "SampleID")
+```
+
+Don't use this one 
+
+```{r}
+df_ID_long %>% ## replace zeros with NAs for plotting
+  replace_with_na_all(condition = ~.x == 0.00000) %>%
+  
+  ## ggplot basic options (USER EDIT: X AND Y AXIS)
+  ggplot(., aes(x=SampleID, y=ID)) +
+  geom_tile(aes(fill = reads), color = "black") +
+  
+  ## x, y, and legend labels (USER EDITS IF DESIRED)
+  ylab("Taxonomic ID") +
+  xlab("Sample") +
+  labs(fill = "Reads") +
+  
+  ## color of the tile options; direction=1 will flip the low/high (USER EDITS IF DESIRED)
+  scale_fill_gradient(na.value = "white", low = "lightskyblue2", high = "#0C4D66") + 
+  
+  ## facet grid with Category and project variables
+  facet_grid2(~ Site, 
+              scales = "free", space = "free", 
+              labeller = labeller(Category = label_wrap_gen(width = 10))) +
+  
+  ## graph theme options
+  theme_classic() +
+  theme(
+    ## axis text 
+    axis.text.x = element_text(angle = 90, size=6, color="grey25", hjust = 1),
+    axis.text.y = element_text(colour = 'black', size = 8),
+    
+    ## legend text and title 
+    legend.text = element_text(size = 8, color="black"),
+    legend.title = element_text(margin = margin(t = 0, r = 0, b = 5, l = 0), size=10, color="black", face="bold"),
+    legend.position = c(-0.4, -0.05), 
+    legend.key.height = unit(5, 'mm'),
+    legend.direction = "horizontal",
+    legend.key.width = unit(5, 'mm'),
+    legend.title.align = 0.5,
+    legend.title.position = "top",
+    
+    ## axis titles 
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0), size=14, face="bold"),
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0), size=14, face="bold"),
+        
+    ## facet wrap labels
+    strip.text.x = element_text(color = "black", face = "bold", size = 12),
+    strip.text.y = element_text(color = "black", face = "bold", size = 12, angle=0),
+    strip.background.y = element_blank(),
+    strip.clip = "off"
+    )
+```
+
+
+## Plotting from Jen's 16S plot 
+
+```{r}
+library(RColorBrewer)
+div_col_pals = brewer.pal.info[brewer.pal.info$category == 'div',]
+div_col = unlist(mapply(brewer.pal, div_col_pals$maxcolors, rownames(div_col_pals)))
+
+# Reverse the order of colors
+div_col_reversed = rev(div_col)
+
+# # Create a function to interpolate colors
+# interpolate_colors <- colorRampPalette(div_col)
+# 
+# # Generate 110 colors
+# extended_colors <- interpolate_colors(21)
+
+depths.colors <- c("1" ="#00b4d8", "2" = "#0353a4", "3" = "#003049" )
+site.colors <- c("Site1" = "#e36414", "Site2" = "#4d908e" , "Site3" = "#907ad6")
+```
+
+```{r}
+# bar plot of taxonomy (kingdom/phylum) 
+taxon <- physeq_obj_unassigned %>%
+  tax_glom(taxrank = "Order") %>%                        # agglomerate to phylum level
+  transform_sample_counts(function(x){x/sum(x)}) %>%    # transform to relative abundance
+  psmelt() %>%                                         # melt to long format
+  filter(Abundance > 0.001)                             # filter (if too difficult to read legend)
+```
+
+```{r}
+taxon_plot <- ggplot(arrange(taxon, Order), aes(x=as.factor(Depth), y=Abundance, fill=Order)) +
+  geom_bar(stat = "identity") + theme_bw() +
+  theme(axis.text.x=element_text(size=8, angle=45,hjust=1,vjust=1.), 
+        plot.title = element_text(size=12, hjust = 0.5), axis.title.x = element_blank()) +
+  # legend.position = "bottom", legend.text = element_text(size=6)) +
+  ggtitle("Taxonomic Composition" ) +
+  labs(y = "Relative Read Abundance",
+       x = "Sample"
+       ) +
+  scale_fill_manual(values = div_col)
+
+taxon_plot + guides(fill=guide_legend(ncol=2)) +
+  facet_wrap(~ Site, scales = "free_x", ncol=4) +
+      ## facet wrap labels
+  theme_classic() +
+  theme(
+    strip.text.x = element_text(color = "black", size = 12),
+    strip.background.y = element_blank(),
+    strip.clip = "off",
+    legend.text = element_text(size=8),
+    ## axis titles 
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0), size=12),
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0), size=12),
+    ## axis text 
+    axis.text.x = element_text(size=8, color="grey25"),
+    axis.text.y = element_text(colour = 'black', size = 8),
+    )
+
+ggsave("data/results/Barchart_Order.png", width=9, height=6)
+```
+
+
+PERMANOVA 
+
+```{r}
+bray <- phyloseq::distance(physeq_obj_unassigned, method = "bray")
+df <- data.frame(sample_data(physeq_obj_unassigned))
+adonis2(bray ~ Site, data = df)
+```
+
+
+
+
