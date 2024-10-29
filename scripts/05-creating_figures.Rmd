@@ -201,16 +201,36 @@ taxon_plot + guides(fill=guide_legend(ncol=2)) +
     axis.text.y = element_text(colour = 'black', size = 8),
     )
 
-ggsave("data/results/Barchart_Order.png", width=9, height=6)
+#ggsave("data/results/Barchart_Order.png", width=9, height=6)
 ```
 
 
 PERMANOVA 
 
 ```{r}
-bray <- phyloseq::distance(physeq_obj_unassigned, method = "bray")
-df <- data.frame(sample_data(physeq_obj_unassigned))
-adonis2(bray ~ Site, data = df)
+bray <- phyloseq::distance(rare, method = "bray")
+df <- data.frame(sample_data(rare))
+adonis2(bray ~ Depth, data = df)
+```
+NMDS 
+
+```{r}
+## check sample sums 
+sample_sums(physeq_obj_unassigned)
+
+# remove samples with zero counts
+physeq_obj_filtered <- prune_samples(sample_sums(physeq_obj_unassigned) > 0, physeq_obj_unassigned)
+
+rare <- rarefy_even_depth(physeq_obj_filtered); rare
+sample_sums(rare)
+
+pcoa <- ordinate(physeq = rare, method = "PCoA", distance = "bray")
+plot_ordination(rare, pcoa, shape = "Depth", color = "Site") +
+  geom_point(aes(color = Site), alpha = .5, size = 4)+
+  theme_bw() +
+  scale_color_manual(values = c("#92374D", "#8C5383", "#4A5899", "#559CAD"))
+
+ggsave("data/results/PCOA.png", width=4, height=3)
 ```
 
 
