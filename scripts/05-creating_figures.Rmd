@@ -39,7 +39,7 @@ otutab <- otu_table(data, taxa_are_rows = T)
 
 meta <- df %>% dplyr::select(Site1_1:Site4_3) %>%
   gather("SampleID", "reads") %>% dplyr::select(-reads) %>%
-  separate(SampleID, c("Site", "Depth"), sep = "_", remove=FALSE) %>% distinct()
+  separate(SampleID, c("Site", "Sample_Number"), sep = "_", remove=FALSE) %>% distinct()
 
 meta <- sample_data(meta)
 rownames(meta) <- meta$SampleID
@@ -148,19 +148,15 @@ df_ID_long %>% ## replace zeros with NAs for plotting
 ```{r}
 library(RColorBrewer)
 div_col_pals = brewer.pal.info[brewer.pal.info$category == 'div',]
+
+# Create a list of all colors from diverging palettes
 div_col = unlist(mapply(brewer.pal, div_col_pals$maxcolors, rownames(div_col_pals)))
 
-# Reverse the order of colors
-div_col_reversed = rev(div_col)
+# Randomize the colors
+div_col_randomized = sample(div_col, length(div_col), replace = FALSE)
 
-# # Create a function to interpolate colors
-# interpolate_colors <- colorRampPalette(div_col)
-# 
-# # Generate 110 colors
-# extended_colors <- interpolate_colors(21)
-
-depths.colors <- c("1" ="#00b4d8", "2" = "#0353a4", "3" = "#003049" )
-site.colors <- c("Site1" = "#e36414", "Site2" = "#4d908e" , "Site3" = "#907ad6")
+# If you still want a reversed version of the randomized colors:
+div_col_randomized_reversed = rev(div_col_randomized)
 ```
 
 ```{r}
@@ -173,7 +169,7 @@ taxon <- physeq_obj_unassigned %>%
 ```
 
 ```{r}
-taxon_plot <- ggplot(arrange(taxon, Order), aes(x=as.factor(Depth), y=Abundance, fill=Order)) +
+taxon_plot <- ggplot(arrange(taxon, Order), aes(x=as.factor(Sample_Number), y=Abundance, fill=Order)) +
   geom_bar(stat = "identity") + theme_bw() +
   theme(axis.text.x=element_text(size=8, angle=45,hjust=1,vjust=1.), 
         plot.title = element_text(size=12, hjust = 0.5), axis.title.x = element_blank()) +
@@ -182,7 +178,7 @@ taxon_plot <- ggplot(arrange(taxon, Order), aes(x=as.factor(Depth), y=Abundance,
   labs(y = "Relative Read Abundance",
        x = "Sample"
        ) +
-  scale_fill_manual(values = div_col)
+  scale_fill_manual(values = div_col_randomized)
 
 taxon_plot + guides(fill=guide_legend(ncol=2)) +
   facet_wrap(~ Site, scales = "free_x", ncol=4) +
@@ -201,18 +197,11 @@ taxon_plot + guides(fill=guide_legend(ncol=2)) +
     axis.text.y = element_text(colour = 'black', size = 8),
     )
 
-#ggsave("data/results/Barchart_Order.png", width=9, height=6)
+ggsave("data/results/Barchart_Order.png", width=9, height=6)
 ```
 
 
 PERMANOVA 
-
-```{r}
-bray <- phyloseq::distance(rare, method = "bray")
-df <- data.frame(sample_data(rare))
-adonis2(bray ~ Depth, data = df)
-```
-NMDS 
 
 ```{r}
 ## check sample sums 
@@ -224,8 +213,15 @@ physeq_obj_filtered <- prune_samples(sample_sums(physeq_obj_unassigned) > 0, phy
 rare <- rarefy_even_depth(physeq_obj_filtered); rare
 sample_sums(rare)
 
+bray <- phyloseq::distance(rare, method = "bray")
+df <- data.frame(sample_data(rare))
+adonis2(bray ~ Site, data = df)
+```
+NMDS 
+
+```{r}
 pcoa <- ordinate(physeq = rare, method = "PCoA", distance = "bray")
-plot_ordination(rare, pcoa, shape = "Depth", color = "Site") +
+plot_ordination(rare, pcoa, color = "Site") +
   geom_point(aes(color = Site), alpha = .5, size = 4)+
   theme_bw() +
   scale_color_manual(values = c("#92374D", "#8C5383", "#4A5899", "#559CAD"))
