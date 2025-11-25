@@ -84,12 +84,12 @@ nextflow run nf-core/ampliseq -resume \
    --FW_primer "GTCGGTAAAACTCGTGCCAGC" \
    --RV_primer "CATAGTGGGGTATCTAATCCCAGTTTG" \
    --outdir ${out} \
-   --trunclenf 240 \
-   --trunclenr 240 \
+   --trunc_qmin 15 \
    --sample_inference pseudo \
    --skip_taxonomy \
    --ignore_failed_filtering \
-   --ignore_failed_trimming
+   --ignore_failed_trimming \
+   --skip_summary_report_fastqc true
 ```
 
 Testing in interactive first. Need to update Nextflow 
@@ -142,3 +142,6 @@ XB_IT_MF
 WML3_IT_MF
 Ignoring failed samples and continue!
 ```
+
+**11-25-2025**: Without any flags I got this to run but a lot of reads are taken out by filtering and merged. There is a default quality median 25 so I'm putting this back in to see if a lower quality retains reads.
+
