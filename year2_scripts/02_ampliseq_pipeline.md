@@ -84,6 +84,8 @@ nextflow run nf-core/ampliseq -resume \
    --FW_primer "GTCGGTAAAACTCGTGCCAGC" \
    --RV_primer "CATAGTGGGGTATCTAATCCCAGTTTG" \
    --outdir ${out} \
+   --trunclenf 150 \
+   --trunclenr 150 \
    --trunc_qmin 15 \
    --sample_inference pseudo \
    --skip_taxonomy \
@@ -145,3 +147,6 @@ Ignoring failed samples and continue!
 
 **11-25-2025**: Without any flags I got this to run but a lot of reads are taken out by filtering and merged. There is a default quality median 25 so I'm putting this back in to see if a lower quality retains reads.
 
+**11-25-2025**: I'm trying a trunc length of 150. I still don't understand how the read is 250 bp long when the read could be shorter than that... Let's try.
+
+This worked better but still isn't fish... Using NCBI to blast.

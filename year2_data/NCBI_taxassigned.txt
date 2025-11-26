@@ -1,0 +1,251 @@
+100233	Bacteria;Planctomycetota;Planctomycetia;Planctomycetales;Planctomycetaceae;Unassigned;uncultured Planctomycetaceae bacterium
+100235	Bacteria;Actinomycetota;Actinomycetes;Actinomycetales;Unassigned;Unassigned;uncultured actinomycete
+100272	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured eukaryote
+100371	Bacteria;Planctomycetota;Planctomycetia;Planctomycetales;Unassigned;Unassigned;uncultured Planctomycetales bacterium
+1010493	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;eukaryote SCGC AAA074-C05
+1010511	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;eukaryote SCGC AAA074-E15
+1010528	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;eukaryote SCGC AAA074-G23
+1010586	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;eukaryote SCGC AAA074-P04
+1080409	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Photobacterium;Photobacterium sp. IAJ19
+109231	Eukaryota;Foraminifera;Unassigned;Rotaliida;Glabratellidae;Glabratella;Glabratella patelliformis
+109238	Eukaryota;Foraminifera;Unassigned;Rotaliida;Glabratellidae;Planoglabratella;Planoglabratella opercularis
+1136067	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Oscillatoria;Oscillatoria subbrevis
+114053	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;uncultured Pseudoalteromonas sp.
+1141622	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured picoeukaryote
+114243	Archaea;Euryarchaeota;Unassigned;Unassigned;Unassigned;Unassigned;uncultured euryarchaeote
+115547	Archaea;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured archaeon
+1159274	Eukaryota;Chordata;Actinopteri;Anguilliformes;Muraenidae;Echidna;Echidna catenata
+1182015	Eukaryota;Chordata;Actinopteri;Unassigned;Malacanthidae;Malacanthus;Malacanthus plumieri
+1182250	Eukaryota;Chordata;Actinopteri;Pleuronectiformes;Bothidae;Bothus;Bothus maculiferus
+120965	Bacteria;Planctomycetota;Unassigned;Unassigned;Unassigned;Unassigned;uncultured Planctomycetota bacterium
+1211	Bacteria;Cyanobacteriota;Unassigned;Unassigned;Unassigned;Unassigned;uncultured cyanobacterium
+123251	Eukaryota;Chordata;Actinopteri;Myctophiformes;Myctophidae;Ceratoscopelus;Ceratoscopelus warmingii
+129059	Eukaryota;Chordata;Actinopteri;Beloniformes;Belonidae;Platybelone;Platybelone argala
+1295078	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured protist
+130367	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine algae BY-10
+1305752	Eukaryota;Unassigned;Dinophyceae;Dinophysales;Dinophysaceae;Unassigned;uncultured Phalacroma
+13136	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;unidentified marine bacterioplankton
+1326761	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Pyrenomonadaceae;Rhodomonas;Rhodomonas sp. CCMP740
+137771	Eukaryota;Bacillariophyta;Unassigned;Unassigned;Unassigned;Unassigned;uncultured diatom
+1387523	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Okeania;Okeania plumata
+1387525	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Okeania;Okeania plumata
+1387526	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Okeania;Okeania plumata
+1400982	Eukaryota;Bacillariophyta;Unassigned;Unassigned;Unassigned;Unassigned;Bacillariophyta sp. 1 MAB-2013
+1411623	Eukaryota;Chlorophyta;Chloropicophyceae;Chloropicales;Chloropicaceae;Chloroparvula;Chloroparvula japonica
+1458931	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Okeania;Okeania plumata
+146143	Eukaryota;Chordata;Actinopteri;Carangiformes;Carangidae;Decapterus;Decapterus macarellus
+1461544	Eukaryota;Chlorophyta;Chloropicophyceae;Chloropicales;Chloropicaceae;Chloropicon;Chloropicon roscoffensis
+1486445	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Geminigeraceae;Proteomonas;Proteomonas sp. RCC1505
+1486458	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Pyrenomonadaceae;Unassigned;Pyrenomonadaceae sp. RCC821
+1491831	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Shewanellaceae;Psychrobium;Psychrobium conchae
+1519962	Eukaryota;Chordata;Actinopteri;Myctophiformes;Myctophidae;Diaphus;Diaphus fragilis
+152507	Bacteria;Actinomycetota;Actinomycetes;Unassigned;Unassigned;Unassigned;uncultured Actinomycetes bacterium
+152704	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured stramenopile
+155900	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured organism
+156131	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus capsulatus
+156133	Eukaryota;Prasinodermophyta;Prasinodermophyceae;Prasinodermales;Prasinodermaceae;Prasinoderma;Prasinoderma coloniale
+1563512	Eukaryota;Bacillariophyta;Unassigned;Unassigned;Unassigned;Unassigned;Bacillariophyta sp. UMPCCC 1117
+1563515	Eukaryota;Unassigned;Dinophyceae;Peridiniales;Peridiniaceae;Unassigned;Peridiniaceae sp. UMPCCC 1115
+156587	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Chaetocerotales;Chaetocerotaceae;Chaetoceros;Chaetoceros simplex
+157276	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Unassigned;uncultured Rhodobacteraceae bacterium
+1606474	Eukaryota;Chlorophyta;Unassigned;Unassigned;Pycnococcaceae;Pycnococcus;Pycnococcus sp. RCC1495
+1606476	Eukaryota;Chlorophyta;Unassigned;Unassigned;Pycnococcaceae;Pycnococcus;Pycnococcus sp. RCC730
+1606477	Eukaryota;Chlorophyta;Unassigned;Unassigned;Pycnococcaceae;Pycnococcus;Pycnococcus sp. RCC733
+1606479	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC1960
+1606480	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC2349
+1606481	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC2357
+1606482	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC2359
+1606483	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC896
+1606582	Eukaryota;Bacillariophyta;Bacillariophyceae;Unassigned;Unassigned;Unassigned;Bacillariophyceae sp. RCC1950
+1606584	Eukaryota;Unassigned;Bolidophyceae;Parmales;Triparmaceae;Bolidomonas;Bolidomonas sp. RCC206
+1606597	Eukaryota;Unassigned;Dictyochophyceae;Unassigned;Unassigned;Unassigned;Dictyochophyceae sp. RCC2342
+1606612	Eukaryota;Unassigned;Eustigmatophyceae;Eustigmatales;Monodopsidaceae;Nannochloropsis;Nannochloropsis sp. RCC863
+1606632	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagomonas;Pelagomonas sp. RCC1024
+1606635	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagomonas;Pelagomonas sp. RCC919
+1606638	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagomonas;Pelagomonas sp. RCC986
+1606695	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Psammodictyon;Psammodictyon sp. RCC1970
+1606766	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Chaetocerotales;Chaetocerotaceae;Chaetoceros;Chaetoceros sp. RC-2015
+160705	Eukaryota;Chordata;Actinopteri;Perciformes;Serranidae;Cephalopholis;Cephalopholis fulva
+161398	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;Pseudoalteromonas phenolica
+163516	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Leptocylindrales;Leptocylindraceae;Leptocylindrus;Leptocylindrus danicus
+165436	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Unassigned;uncultured Flavobacteriaceae bacterium
+1659307	Eukaryota;Chlorophyta;Mamiellophyceae;Unassigned;Unassigned;Unassigned;uncultured Mamiellophyceae
+1659652	Eukaryota;Foraminifera;Unassigned;Rotaliida;Glabratellidae;Angulodiscorbis;Angulodiscorbis quadrangularis
+168826	Eukaryota;Unassigned;Cryptophyceae;Cryptomonadales;Cryptomonadaceae;Unassigned;uncultured Cryptomonadaceae
+171248	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured alga
+171259	Eukaryota;Haptophyta;Unassigned;Unassigned;Unassigned;Unassigned;Haptophyta environmental samples
+172788	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured phototrophic eukaryote
+173331	Eukaryota;Chordata;Actinopteri;Carangiformes;Carangidae;Trachinotus;Trachinotus falcatus
+173342	Eukaryota;Chordata;Actinopteri;Carangiformes;Carangidae;Trachinotus;Trachinotus carolinus
+1737140	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured eukaryotic phytoplankton
+1746027	Eukaryota;Bacillariophyta;Unassigned;Unassigned;Unassigned;Unassigned;Bacillariophyta sp. UMPCCC 1218
+175245	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured fungus
+1771288	Eukaryota;Chordata;Actinopteri;Carangiformes;Carangidae;Trachinotus;Trachinotus mookalee
+1778489	Bacteria;Pseudomonadota;Alphaproteobacteria;Candidatus Pelagibacterales;Unassigned;Unassigned;Pelagibacterales bacterium LSUCC0245
+1779349	Eukaryota;Bacillariophyta;Unassigned;Unassigned;Unassigned;Unassigned;Bacillariophyta sp. 867-32
+1798917	Bacteria;Pseudomonadota;Gammaproteobacteria;Cellvibrionales;Cellvibrionaceae;Umboniibacter;uncultured Umboniibacter sp.
+183512	Eukaryota;Unassigned;Chrysophyceae;Unassigned;Unassigned;Unassigned;uncultured Chrysophyceae
+186043	Eukaryota;Bacillariophyta;Bacillariophyceae;Unassigned;Entomoneidaceae;Entomoneis;Entomoneis sp.
+1869227	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;bacterium
+1871068	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomicrobiales;Phyllobacteriaceae;Unassigned;Phyllobacteriaceae bacterium
+1906738	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomonadales;Hyphomonadaceae;Hyphomonas;Hyphomonas sp. Mor2
+1907202	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Roseobacteraceae;Roseobacter;Roseobacter sp.
+1907788	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagococcus;Pelagococcus sp.
+1918652	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Vibrio;Vibrio sp. 7JANF3-E-1
+1918653	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Vibrio;Vibrio sp. 7JANF3-E-2
+1930273	Bacteria;Planctomycetota;Planctomycetia;Pirellulales;Pirellulaceae;Rubripirellula;Rubripirellula lacrimiformis
+1950937	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+1951536	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Amphipleuraceae;Halamphora;Halamphora sp.
+1968823	Bacteria;Pseudomonadota;Alphaproteobacteria;Hyphomonadales;Hyphomonadaceae;Henriciella;Henriciella sp.
+1971899	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Shewanellaceae;Psychrobium;Psychrobium sp.
+197759	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Naviculaceae;Haslea;Haslea sp.
+197888	Eukaryota;Chordata;Actinopteri;Unassigned;Pomacentridae;Chromis;Chromis multilineata
+1982007	Eukaryota;Unassigned;Pelagophyceae;Unassigned;Unassigned;Unassigned;Pelagophyceae sp.
+198431	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured prokaryote
+2018706	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Naviculaceae;Navicula;Navicula tsukamotoi
+2026743	Bacteria;Pseudomonadota;Gammaproteobacteria;Cellvibrionales;Halieaceae;Unassigned;Halieaceae bacterium
+203449	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine eukaryote
+2083208	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Tritonibacter;Tritonibacter sp.
+208526	Eukaryota;Chordata;Aves;Galliformes;Phasianidae;Gallus;Gallus gallus
+210602	Eukaryota;Bacillariophyta;Fragilariophyceae;Fragilariales;Staurosiraceae;Nanofrustulum;Nanofrustulum shiloi
+2126271	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Unassigned;Unassigned;Naviculales sp.
+213324	Bacteria;Nitrospirota;Nitrospiria;Nitrospirales;Nitrospiraceae;Unassigned;uncultured Nitrospiraceae bacterium
+213591	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa banksii
+213592	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa acuminata
+214685	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa acuminata
+214687	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa acuminata
+216927	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Paraliales;Paraliaceae;Paralia;Paralia sulcata
+219660	Bacteria;Pseudomonadota;Alphaproteobacteria;Rickettsiales;Unassigned;Unassigned;uncultured Rickettsiales bacterium
+228179	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa acuminata
+2282382	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Roseobacteraceae;Thalassococcus;Thalassococcus profundi
+2305497	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Amphipleuraceae;Halamphora;Halamphora americana
+243198	Eukaryota;Foraminifera;Unassigned;Rotaliida;Unassigned;Virgulinella;Virgulinella fragilis
+243282	Eukaryota;Unassigned;Cryptophyceae;Unassigned;Unassigned;Unassigned;uncultured Cryptophyta
+2518994	Bacteria;Pseudomonadota;Gammaproteobacteria;Cellvibrionales;Halieaceae;Paraluminiphilus;Candidatus Paraluminiphilus aquimaris
+2565277	Eukaryota;Chlorophyta;Chloropicophyceae;Chloropicales;Chloropicaceae;Chloropicon;Chloropicon sp. RCC4434
+257466	Archaea;Euryarchaeota;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine euryarchaeote
+2590921	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Thalassiosirales;Thalassiosiraceae;Mediolabrus;Mediolabrus comicus
+2593073	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Thalassiosirales;Thalassiosiraceae;Minidiscus;Minidiscus spinulatus
+259317	Bacteria;Fusobacteriota;Fusobacteriia;Fusobacteriales;Fusobacteriaceae;Propionigenium;uncultured Propionigenium sp.
+2607331	Eukaryota;Unassigned;Phaeophyceae;Dictyotales;Dictyotaceae;Dictyota;Dictyota falklandica
+2608457	Eukaryota;Chordata;Actinopteri;Beloniformes;Belonidae;Platybelone;Platybelone argala
+265321	Bacteria;Candidatus Poribacteria;Unassigned;Unassigned;Unassigned;Unassigned;uncultured Poribacteria bacterium
+265540	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Thalassiosirales;Thalassiosiraceae;Minidiscus;Minidiscus trioculatus
+265549	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Naviculaceae;Navicula;Navicula lanceolata
+265575	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Melosirales;Hyalodiscaceae;Podosira;Podosira stelligera
+265581	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Psammodictyon;Psammodictyon panduriforme
+265599	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Melosirales;Hyalodiscaceae;Hyalodiscus;Hyalodiscus sp. CCMP1679
+2662264	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Tritonibacter;Tritonibacter litoralis
+2663379	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Paracoccaceae;Tritonibacter;Tritonibacter aquimaris
+2735273	Bacteria;Cyanobacteriota;Cyanophyceae;Spirulinales;Spirulinaceae;Spirulina;Spirulina major
+2749911	Eukaryota;Bacillariophyta;Mediophyceae;Eupodiscales;Odontellaceae;Pseudictyota;Pseudictyota dubia
+2770866	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Stauroneidaceae;Schizostauron;Schizostauron trachyderma
+2812483	Eukaryota;Haptophyta;Unassigned;Prymnesiales;Prymnesiaceae;Unassigned;Prymnesiaceae sp.
+2833768	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Sirenicapillariaceae;Sirenicapillaria;Sirenicapillaria stauglerae
+2833769	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Sirenicapillariaceae;Sirenicapillaria;Sirenicapillaria stauglerae
+2833770	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Sirenicapillariaceae;Sirenicapillaria;Sirenicapillaria stauglerae
+2856	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Cylindrotheca;Cylindrotheca closterium
+2862141	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Nitzschia;Nitzschia anatoliensis
+2867502	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Geminigeraceae;Proteomonas;Proteomonas sp. NIES-1005
+2867503	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Pyrenomonadaceae;Rhodomonas;Rhodomonas sp. NIES-1006
+2867505	Eukaryota;Unassigned;Cryptophyceae;Pyrenomonadales;Geminigeraceae;Proteomonas;Proteomonas sp. NEIS-1375
+293344	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodobacterales;Roseobacteraceae;Roseovarius;uncultured Roseovarius sp.
+2934966	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Sirenicapillariaceae;Sirenicapillaria;Sirenicapillaria stauglerae
+294936	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Photobacterium;Photobacterium rosenbergii
+296585	Eukaryota;Chlorophyta;Unassigned;Unassigned;Pycnococcaceae;Pseudoscourfieldia;Pseudoscourfieldia cf. marina RCC261
+296655	Eukaryota;Unassigned;Dictyochophyceae;Rhizochromulinales;Unassigned;Rhizochromulina;Rhizochromulina sp. CCMP1253
+296657	Eukaryota;Haptophyta;Unassigned;Pavlovales;Pavlovaceae;Pavlova;Pavlova sp. RCC437
+296658	Eukaryota;Haptophyta;Unassigned;Pavlovales;Pavlovaceae;Pavlova;Pavlova sp. RCC441
+298571	Bacteria;Planctomycetota;Planctomycetia;Pirellulales;Pirellulaceae;Pirellula;uncultured Pirellula sp.
+3003	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Bacillaria;Bacillaria paxillifer
+303405	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Nitzschia;Nitzschia inconspicua
+3034614	Bacteria;Cyanobacteriota;Cyanophyceae;Oscillatoriales;Oscillatoriaceae;Oscillatoria;Oscillatoria subbrevis
+303935	Eukaryota;Chordata;Chondrichthyes;Carcharhiniformes;Carcharhinidae;Carcharhinus;Carcharhinus perezii
+3073325	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+3082010	Eukaryota;Bacillariophyta;Bacillariophyceae;Cocconeidales;Cocconeidaceae;Cocconeiopsis;Cocconeiopsis kantsiensis
+3098633	Eukaryota;Haptophyta;Unassigned;Pavlovales;Pavlovaceae;Pavlova;Pavlova sp. RD-2023a
+310071	Bacteria;Actinomycetota;Acidimicrobiia;Acidimicrobiales;Unassigned;Unassigned;uncultured Acidimicrobiales bacterium
+3106063	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Plagiotropidaceae;Plagiotropis;Plagiotropis lepidoptera
+3159519	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+3231089	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+3231090	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+3235060	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+3235062	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+327798	Eukaryota;Chordata;Actinopteri;Perciformes;Serranidae;Paranthias;Paranthias furcifer
+332614	Bacteria;Pseudomonadota;Gammaproteobacteria;Pseudomonadales;Unassigned;Unassigned;uncultured Pseudomonadales bacterium
+3395319	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+34034	Bacteria;Unassigned;Deltaproteobacteria;Unassigned;Unassigned;Unassigned;uncultured delta proteobacterium
+3420109	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned
+345254	Eukaryota;Chordata;Actinopteri;Blenniiformes;Blenniidae;Hypleurochilus;Hypleurochilus springeri
+352351	Bacteria;Pseudomonadota;Alphaproteobacteria;Rhodospirillales;Rhodospirillaceae;Unassigned;uncultured Rhodospirillaceae bacterium
+35677	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagomonas;Pelagomonas calceolata
+35679	Eukaryota;Unassigned;Pelagophyceae;Pelagomonadales;Unassigned;Pelagococcus;Pelagococcus subviridis
+358574	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured microorganism
+360281	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine organism
+360836	Archaea;Candidatus Thermoplasmatota;Thermoplasmata;Candidatus Thermoprofundales;Unassigned;Unassigned;uncultured marine group III euryarchaeote
+371672	Eukaryota;Chordata;Actinopteri;Holocentriformes;Holocentridae;Myripristis;Myripristis jacobus
+379994	Eukaryota;Chordata;Actinopteri;Labriformes;Labridae;Sparisoma;Sparisoma axillare
+388278	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Photobacterium;Photobacterium lutimaris
+390373	Eukaryota;Chordata;Actinopteri;Syngnathiformes;Mullidae;Pseudupeneus;Pseudupeneus maculatus
+392900	Eukaryota;Chordata;Actinopteri;Tetraodontiformes;Balistidae;Melichthys;Melichthys vidua
+412158	Eukaryota;Haptophyta;Unassigned;Prymnesiales;Chrysochromulinaceae;Chrysochromulina;Chrysochromulina simplex
+41457	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Thalassiosirales;Skeletonemataceae;Skeletonema;Skeletonema pseudocostatum
+415540	Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine microorganism
+41886	Eukaryota;Chlorophyta;Unassigned;Unassigned;Pycnococcaceae;Pseudoscourfieldia;Pseudoscourfieldia marina
+426630	Eukaryota;Bacillariophyta;Coscinodiscophyceae;Chaetocerotales;Chaetocerotaceae;Chaetoceros;Chaetoceros costatus
+427148	Bacteria;Planctomycetota;Planctomycetia;Pirellulales;Pirellulaceae;Blastopirellula;uncultured Blastopirellula sp.
+43654	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;Pseudoalteromonas aurantia
+43655	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;Pseudoalteromonas citrea
+445362	Eukaryota;Chordata;Actinopteri;Unassigned;Sphyraenidae;Sphyraena;Sphyraena jello
+4641	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa acuminata
+464243	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;Stramenopile sp. RCC853
+464274	Eukaryota;Chlorophyta;Palmophyllophyceae;Prasinococcales;Prasinococcaceae;Prasinococcus;Prasinococcus sp. RCC859
+490245	Eukaryota;Chordata;Actinopteri;Lutjaniformes;Haemulidae;Anisotremus;Anisotremus virginicus
+491892	Eukaryota;Streptophyta;Magnoliopsida;Zingiberales;Musaceae;Musa;Musa hybrid cultivar
+50731	Eukaryota;Chordata;Actinopteri;Unassigned;Pomacentridae;Abudefduf;Abudefduf saxatilis
+515483	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Psammodictyon;Psammodictyon constrictum
+51758	Eukaryota;Chordata;Actinopteri;Acanthuriformes;Acanthuridae;Acanthurus;Acanthurus chirurgus
+51765	Eukaryota;Chordata;Actinopteri;Labriformes;Labridae;Sparisoma;Sparisoma radians
+521181	Eukaryota;Chordata;Actinopteri;Blenniiformes;Blenniidae;Hypleurochilus;Hypleurochilus geminatus
+531324	Eukaryota;Chordata;Actinopteri;Lutjaniformes;Haemulidae;Anisotremus;Anisotremus surinamensis
+531327	Eukaryota;Chordata;Actinopteri;Lutjaniformes;Haemulidae;Haemulon;Haemulon parra
+53249	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;Pseudoalteromonas sp.
+542473	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured bacterium HF0010_05E14
+555756	Eukaryota;Bacillariophyta;Mediophyceae;Cymatosirales;Cymatosiraceae;Leyanella;Leyanella arenaria
+561098	Eukaryota;Haptophyta;Unassigned;Prymnesiales;Chrysochromulinaceae;Chrysochromulina;Chrysochromulina camella
+56763	Archaea;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine archaeon
+56765	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine bacterium
+568900	Eukaryota;Bacillariophyta;Bacillariophyceae;Naviculales;Naviculaceae;Seminavis;Seminavis robusta
+584627	Eukaryota;Chordata;Actinopteri;Anguilliformes;Muraenidae;Gymnothorax;Gymnothorax miliaris
+59665	Eukaryota;Chordata;Actinopteri;Labriformes;Labridae;Sparisoma;Sparisoma rubripinne
+59666	Eukaryota;Chordata;Actinopteri;Labriformes;Labridae;Sparisoma;Sparisoma viride
+625924	Bacteria;Bdellovibrionota;Bacteriovoracia;Bacteriovoracales;Bacteriovoracaceae;Unassigned;uncultured Bacteriovoracaceae bacterium
+660	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Photobacterium;Photobacterium sp.
+660913	Eukaryota;Haptophyta;Unassigned;Isochrysidales;Noelaerhabdaceae;Emiliania;uncultured Emiliania
+661771	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Vibrio;Vibrio sp. PaD2.27
+676241	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured sediment bacterium
+678	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Vibrio;Vibrio sp.
+689	Bacteria;Pseudomonadota;Gammaproteobacteria;Vibrionales;Vibrionaceae;Vibrio;Vibrio mediterranei
+70868	Eukaryota;Chordata;Actinopteri;Unassigned;Sphyraenidae;Sphyraena;Sphyraena barracuda
+721873	Eukaryota;Chordata;Actinopteri;Tetraodontiformes;Ostraciidae;Lactophrys;Lactophrys trigonus
+722564	Eukaryota;Chordata;Actinopteri;Anguilliformes;Muraenidae;Gymnothorax;Gymnothorax vicinus
+77133	Bacteria;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured bacterium
+7932	Eukaryota;Chordata;Actinopteri;Elopiformes;Megalopidae;Megalops;Megalops atlanticus
+864064	Bacteria;Bacteroidota;Flavobacteriia;Flavobacteriales;Flavobacteriaceae;Flagellimonas;Flagellimonas beolgyonensis
+86473	Bacteria;Pseudomonadota;Gammaproteobacteria;Unassigned;Unassigned;Unassigned;uncultured Gammaproteobacteria bacterium
+879968	Bacteria;Actinomycetota;Acidimicrobiia;Acidimicrobiales;Ilumatobacteraceae;Ilumatobacter;uncultured Ilumatobacter sp.
+884108	Eukaryota;Unassigned;Unassigned;Unassigned;Unassigned;Unassigned;uncultured marine rappemonad
+89381	Eukaryota;Foraminifera;Unassigned;Rotaliida;Rotaliidae;Pararotalia;Pararotalia nipponica
+9031	Eukaryota;Chordata;Aves;Galliformes;Phasianidae;Gallus;Gallus gallus
+904980	Bacteria;Planctomycetota;Phycisphaerae;Phycisphaerales;Phycisphaeraceae;Unassigned;uncultured Phycisphaeraceae bacterium
+908985	Eukaryota;Bacillariophyta;Bacillariophyceae;Bacillariales;Bacillariaceae;Nitzschia;Nitzschia ovalis
+91750	Bacteria;Pseudomonadota;Alphaproteobacteria;Unassigned;Unassigned;Unassigned;uncultured Alphaproteobacteria bacterium
+91992	Eukaryota;Unassigned;Bolidophyceae;Parmales;Triparmaceae;Triparma;Triparma pacifica
+939696	Bacteria;Pseudomonadota;Gammaproteobacteria;Unassigned;Unassigned;Unassigned;gamma proteobacterium SCGC AAA300-D14
+94928	Eukaryota;Chordata;Actinopteri;Tetraodontiformes;Balistidae;Melichthys;Melichthys niger
+9606	Eukaryota;Chordata;Mammalia;Primates;Hominidae;Homo;Homo sapiens
+9615	Eukaryota;Chordata;Mammalia;Carnivora;Canidae;Canis;Canis lupus
+9736	Eukaryota;Chordata;Mammalia;Artiodactyla;Delphinidae;Stenella;Stenella longirostris
+9823	Eukaryota;Chordata;Mammalia;Artiodactyla;Suidae;Sus;Sus scrofa
+9913	Eukaryota;Chordata;Mammalia;Artiodactyla;Bovidae;Bos;Bos taurus
+998083	Bacteria;Pseudomonadota;Gammaproteobacteria;Alteromonadales;Pseudoalteromonadaceae;Pseudoalteromonas;Pseudoalteromonas sp. HK41
