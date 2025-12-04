@@ -1,0 +1,45 @@
+---
+title: "Mitofish annotation"
+output:
+  github_document: default
+  pdf_document:
+    keep_tex: yes
+  html_document:
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+Annotate ASVs with Mitofish based on raw fastqc. This was impressively fast: https://mitofish.aori.u-tokyo.ac.jp/mito-ngs
+
+## Load libraries
+
+```{r}
+library(ggplot2) ## for plotting
+library(dplyr) ## for data table manipulation
+library(tidyr) ## for data table manipulation
+library(readr) ## for reading in tsv files
+library(readxl) ## for reading in excel files
+library(stringr) ## for data transformation
+library(strex) ## for data transformation
+library(writexl) ## for excel output
+library(purrr) ## for data transformation
+library(funrar) ## for make_relative()
+library(tidyverse) ## for data table manipulation
+library(Biostrings) ## for reading in fasta file 
+library(data.table)  ## for data table manipulation
+```
+
+## Load data 
+
+```{r}
+table <- read.delim2("year2_data/mitofish/ASVTable.tsv/ASVTable.tsv")
+
+fish_table <- table %>% subset(Phylum=="Chordata")
+```
+
+
+
+
