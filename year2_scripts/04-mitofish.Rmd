@@ -30,14 +30,316 @@ library(funrar) ## for make_relative()
 library(tidyverse) ## for data table manipulation
 library(Biostrings) ## for reading in fasta file 
 library(data.table)  ## for data table manipulation
+library(phyloseq)
+library(vegan)
+
+library(lme4) ## for stats
+library(car) ## for stats
+library(stats) ## for stats
 ```
 
 ## Load data 
 
 ```{r}
+## 688 ASVS with assigned categories 
 table <- read.delim2("year2_data/mitofish/ASVTable.tsv/ASVTable.tsv")
+length(unique(table$MD5))
 
 fish_table <- table %>% subset(Phylum=="Chordata")
+
+as.data.frame(colnames(table %>% dplyr::select(XB.IT.MF_S16_L001_R:MRG4.IT.MF_S9_L001_R))) %>%
+  dplyr::rename(SampleID=1) %>% write_xlsx("year2_data/sampleID_list.xlsx")
+
+metadata <- read_xlsx("year2_data/metadata.xlsx") %>%
+  subset(!Location=="XB")
+
+meta <- sample_data(metadata)
+rownames(meta) <- meta$SampleID
+```
+
+## Create phyloseq object 
+
+```{r}
+df <- table %>% dplyr::select(MD5, Superkingdom:Species,MRG2.IT.MF_S7_L001_R:MRG4.IT.MF_S9_L001_R) %>%
+  column_to_rownames(var = "MD5") 
+
+counts <- df %>% dplyr::select(MRG2.IT.MF_S7_L001_R:MRG4.IT.MF_S9_L001_R)
+tax_df <- as.matrix(df %>% dplyr::select(Superkingdom:Species))
+
+otu <- otu_table(counts, taxa_are_rows = T)
+tax <- tax_table(tax_df)
+
+physeq <- merge_phyloseq(otu, tax, meta)
+physeq_rare <- rarefy_even_depth(physeq, rngseed=TRUE)
+```
+
+Calculating alpha diversity
+
+```{r}
+alpha_diversity <- microbiome::alpha(physeq_rare)
+```
+
+## Set visualization 
+
+```{r}
+loc.colors <- c("HM" = "indianred3", "MRG" = "orchid4" , "WML" = "steelblue")
+```
+
+## PCoA 
+
+```{r}
+pcoa <- ordinate(physeq = physeq_rare, method = "PCoA", distance = "bray")
+```
+
+```{r}
+# Extract % variance for axis labels
+pc1_var <- round(pcoa$values$Relative_eig[1] * 100, 1)
+pc2_var <- round(pcoa$values$Relative_eig[2] * 100, 1)
+
+pcoa_plot <- plot_ordination(
+    physeq_rare, pcoa, 
+    shape = "Location", 
+    color = "Location"
+  ) +
+  geom_point(aes(color = Location, shape = Location),
+             alpha = 0.5, size = 5) +
+  theme_bw() +
+  labs(
+    shape = "Location",
+    color = "Location",
+    x = paste0("PC1 (", pc1_var, "%)"),
+    y = paste0("PC2 (", pc2_var, "%)")
+  ) +
+  theme(
+    legend.position = "right",
+    legend.title = element_text(face = "bold", size = 12),
+    axis.title.y = element_text(
+      margin = margin(t = 0, r = 10, b = 0, l = 0),
+      size = 10, face = "bold"
+    ),
+    axis.title.x = element_text(
+      margin = margin(t = 10, r = 0, b = 0, l = 0),
+      size = 10, face = "bold"
+    )
+  ) +
+  scale_color_manual(values = loc.colors)
+
+pcoa_plot
+
+ggsave("year2_data/figures/PCoA.png", width=5, height=4)
+```
+
+
+## Alpha Diversity 
+
+```{r}
+alpha_df <- alpha_diversity %>% dplyr::select(observed, diversity_shannon) %>%
+  rownames_to_column(var = "SampleID") %>% left_join(., meta, by = "SampleID")
+
+
+alpha_df %>%
+  gather("variable", "value", 2:3) %>%
+  
+  ggplot(., aes(x=Location, y=value, fill=Location)) +
+   theme_bw() +
+  
+    geom_boxplot(aes(fill=Location), alpha=0.2, outlier.shape = NA) + 
+  
+    geom_jitter(aes(shape=Location), size=2.5, alpha=0.75, color="black", width=0.2) + 
+  
+    facet_wrap(~ variable, scales = "free", strip.position = c("left"),
+               labeller = as_labeller(c(diversity_shannon = "Shannon Index",
+                                      observed = "Species Richness"))) + 
+    scale_shape_manual(values = c(21,22,23)) +
+    scale_fill_manual(values = loc.colors) +
+  ylab("") +
+  labs(fill = "Location") +
+  guides(shape = "none") +
+  theme(strip.background = element_blank(),
+        strip.placement = "outside", 
+        title = element_text(size=12),
+        legend.text = element_text(size=10),
+        legend.position = "none",
+        strip.text = element_text(size=12),
+        axis.text.x = element_text(color="black"),
+        axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0), size=12),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0), size=12)
+        ) +
+  scale_y_continuous(expand = expansion(mult = c(0.05, 0.2)))
+
+ggsave("year2_data/figures/Alpha_diversity.png", width=6, height=3.5)
+```
+
+### Statistics 
+
+PERMANOVA 
+
+```{r}
+bray <- phyloseq::distance(physeq_rare, method = "bray")
+df_rare <- data.frame(sample_data(physeq_rare))
+adonis2(bray ~ Location, data = df_rare)
+```
+Alpha Diversity: Shannon
+
+```{r}
+aov_shannon <- aov(diversity_shannon ~ Location, data = alpha_df)
+Anova(aov_shannon, type = "III")
+TukeyHSD(aov_shannon)
+```
+
+Alpha Diversity: observed
+
+```{r}
+aov_observed <- aov(observed ~ Location, data = alpha_df)
+Anova(aov_observed, type = "III")
+TukeyHSD(aov_observed)
+```
+
+## Bar Plots 
+
+```{r}
+# Convert to relative abundance
+phy_rel <- transform_sample_counts(physeq_rare, function(x) x / sum(x))
+
+# Identify taxa whose *maximum* relative abundance across samples ≥ 0.001 (0.1%)
+taxa_keep <- taxa_names(phy_rel)[apply(otu_table(phy_rel), 1, max) >= 0.001]
+
+# Prune phyloseq object
+phy_filt <- prune_taxa(taxa_keep, phy_rel)
+```
+
+
+```{r}
+phy_filt_glom <- tax_glom(phy_filt, taxrank = "Phylum")
+phy_rel_glom <- tax_glom(phy_rel, taxrank = "Phylum")
+
+plot_bar(phy_rel_glom, x = "AltID", fill = "Phylum") + theme_bw() +
+  labs(
+    x = "",
+    y = "Relative Abundance"
+  ) +
+  facet_wrap(~Location, scales="free_x") +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust=0.5, hjust=1)
+  )
+
+ggsave("year2_data/figures/Phylum.png", width=9, height=5)
+```
+
+```{r}
+phy_chordata <- subset_taxa(phy_rel, Phylum == "Chordata")
+phy_chordata_order <- tax_glom(phy_chordata, taxrank = "Order")
+
+plot_bar(phy_chordata_order, x = "AltID", fill = "Order") + theme_bw() +
+  labs(
+    x = "",
+    y = "Relative Abundance"
+  ) +
+  facet_wrap(~Location, scales="free_x") +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust=0.5, hjust=1)
+  )
+
+ggsave("year2_data/figures/Chordata_Order.png", width=9, height=5)
+```
+
+
+## Mapping
+
+```{r}
+library(sf)
+library(ggplot2)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggrepel)
+```
+
+```{r}
+mean_alpha <- alpha_df %>% dplyr::group_by(Location, Latitude, Longitude) %>%
+  summarise(observed=mean(observed))
+
+sf_use_s2(FALSE)
+
+# bounding box (your NY region)
+lon_min <- -74
+lon_max <- -73
+lat_min <- 40.75
+lat_max <- 41.3
+
+# detailed land polygons
+land <- ne_download(
+  scale = 10,
+  type = "land",
+  category = "physical",
+  returnclass = "sf"
+)
+land_crop <- st_crop(land, xmin = lon_min, xmax = lon_max,
+                           ymin = lat_min, ymax = lat_max)
+
+# lakes
+lakes <- ne_download(
+  scale = 10,
+  type = "lakes",
+  category = "physical",
+  returnclass = "sf"
+)
+lakes_crop <- st_crop(lakes, xmin = lon_min, xmax = lon_max,
+                            ymin = lat_min, ymax = lat_max)
+
+# rivers
+rivers <- ne_download(
+  scale = 10,
+  type = "rivers_lake_centerlines",
+  category = "physical",
+  returnclass = "sf"
+)
+rivers_crop <- st_crop(rivers, xmin = lon_min, xmax = lon_max,
+                             ymin = lat_min, ymax = lat_max)
+
+# build map with your columns: Latitude, Longitude, observed
+ggplot() +
+  geom_sf(data = land_crop, fill = "#e6e1d2", color = "#b6ab9a", linewidth = 0.3) +
+  geom_sf(data = lakes_crop, fill = "#6ca6d9", alpha = 0.9, color = NA) +
+  geom_sf(data = rivers_crop, color = "#4a89c7", linewidth = 0.4, alpha = 0.8) +
+  
+  geom_point(
+    data = mean_alpha,
+    aes(x = Longitude, y = Latitude, fill = observed),
+    color='black',
+    size = 4.75, shape=21,
+    alpha = 0.9
+  ) +
+  
+geom_label_repel(
+  data = mean_alpha,
+  aes(x = Longitude, y = Latitude, label = Location),
+  size = 3,
+  label.size = 0.1,
+  label.padding = unit(0.15, "lines"),
+  min.segment.length = 0,     # always draw connecting line
+  box.padding = 0.6,          # distance away from point
+  point.padding = 0.6         # space between point and label
+) +
+  
+  scale_fill_viridis_c(option = "plasma", name = "Richness", direction = -1) +
+  
+  coord_sf(
+    xlim = c(lon_min, lon_max),
+    ylim = c(lat_min, lat_max),
+    expand = FALSE
+  ) +
+  
+  theme_minimal() +
+  labs(
+    x = "Longitude",
+    y = "Latitude"
+  ) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.title = element_text(size = 12, face = "bold")
+  )
+
+ggsave("year2_data/figures/Map_alpha_diversity.png", width=5.2, height=3.25)
 ```
 
 
